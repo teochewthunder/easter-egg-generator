@@ -1,0 +1,1046 @@
+<html>
+	<head>
+		<title>Easter 2016</title>
+		<style>
+			fieldset
+			{
+				border:1px solid #999999;
+				font-family:arial;
+				font-size:12px;
+			}
+
+			legend
+			{
+				font-weight:bold;
+			}
+
+			label
+			{
+				font-family:arial;
+				font-size:12px;
+			}
+
+			.verticaltext
+			{
+				transform:rotate(-90deg);
+				transform-origin:left top;
+				-webkit-transform:rotate(-90deg);
+				-webkit-transform-origin:left top;
+				margin-top:100%;
+			}
+
+			#dashboard_wrapper
+			{
+				width:45%;
+				height:auto;
+				float:left;
+				margin-left:2%;
+				margin-top:2%;
+				border:1px solid #999999;
+			}
+
+			#egg_wrapper
+			{
+				width:45%;
+				height:85%;
+				margin-left:50%;
+				margin-top:2%;
+				border:1px solid #999999;
+				position:fixed;
+			}
+
+			#egg
+			{
+				width:250px;
+				height:350px;
+				border:1px solid #888888;
+ 				-webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px; 
+ 				border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+ 				overflow:hidden;
+ 				position:absolute;
+ 				z-index:10;
+			}
+
+			#egg_overlay
+			{ 
+ 				opacity: 0.5;
+			    filter: alpha(opacity=50); /* For IE8 and earlier */
+ 				-webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px; 
+ 				border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+				width:250px;
+				height:350px;
+				position:absolute;
+				z-index:900;
+			    background: #feffff; /* Old browsers */
+				background: -moz-radial-gradient(100px 100px, ellipse cover,  #feffff 0%, #444444 58%); /* FF3.6+ */
+				background: -webkit-gradient(radial, 100px 100px, 0px, center center, 100%, color-stop(0%,#feffff), color-stop(58%,#444444)); /* Chrome,Safari4+ */
+				background: -webkit-radial-gradient(100px 100px, ellipse cover,  #feffff 0%,#444444 58%); /* Chrome10+,Safari5.1+ */
+				background: -o-radial-gradient(100px 100px, ellipse cover,  #feffff 0%,#444444 58%); /* Opera 12+ */
+				background: -ms-radial-gradient(100px 100px, ellipse cover,  #feffff 0%,#444444 58%); /* IE10+ */
+				background: radial-gradient(ellipse at 100px 100px,  #feffff 0%,#444444 58%); /* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#444444',GradientType=1 ); /* IE6-9 fallback on horizontal 
+
+gradient */
+			}
+
+			#egg_shadow
+			{ 
+ 				border-radius: 50%;
+				width:150px;
+				height:10px;
+				box-shadow: 0px 20px 5px 5px #999999;
+				background:none; 
+				position:absolute;
+				z-index:0;
+			}
+
+			#pnlBands,#pnlPolkadots,#pnlStars,#pnlRainbow{display:none;}
+
+			.band
+			{
+				width:1000px;
+				margin-left:-350px;
+				transform-origin:50% 50%;
+				-webkit-transform-origin:50% 50%;
+				display:none;
+				position:absolute;
+			}
+
+			.polkadot
+			{
+				border-radius:50%;
+				display:none;
+				position:absolute;
+			}
+
+			.star_wrapper
+			{
+				overflow: visible;
+				transform-origin:50% 50%;
+				-webkit-transform-origin:50% 50%;
+				display:none;
+				position:absolute;
+			}
+
+			.star_part1
+			{
+ 				position: absolute; 
+ 				display: block; 
+ 				color: red; 
+ 				width: 0px; 
+ 				height: 0px; 
+ 				border-right: 20px solid transparent; 
+ 				border-bottom: 15px solid red; 
+ 				border-left: 20px solid transparent; 
+ 				transform:rotate(0deg);
+ 				-webkit-transform:rotate(0deg);
+			}
+
+			.star_part2
+			{
+ 				position: absolute; 
+ 				display: block; 
+ 				color: red; 
+ 				width: 0px; 
+ 				height: 0px; 
+ 				border-right: 20px solid transparent; 
+ 				border-bottom: 15px solid red; 
+ 				border-left: 20px solid transparent; 
+ 				transform:rotate(70deg);
+ 				-webkit-transform:rotate(70deg);
+			}
+
+			.star_part3
+			{
+ 				position: absolute; 
+ 				display: block; 
+ 				color: red; 
+ 				width: 0px; 
+ 				height: 0px; 
+ 				border-right: 20px solid transparent; 
+ 				border-bottom: 15px solid red; 
+ 				border-left: 20px solid transparent; 
+ 				transform:rotate(-70deg);
+ 				-webkit-transform:rotate(-70deg);
+			}
+
+			#rainbowband1{background:transparent;border:10px solid #FF0000;}
+			#rainbowband2{background:transparent;border:10px solid #FF9900;}
+			#rainbowband3{background:transparent;border:10px solid #FFFF00;}
+			#rainbowband4{background:transparent;border:10px solid #00FF00;}
+			#rainbowband5{background:transparent;border:10px solid #0000FF;}
+			#rainbowband6{background:transparent;border:10px solid #440044;}
+			#rainbowband7{background:transparent;border:10px solid #FF00FF;}
+			
+			#rainbow_wrapper
+			{
+				width:1000px;
+				height:100px;
+				transform-origin:50% 50%;
+				-webkit-transform-origin:50% 50%;
+				overflow:hidden;
+				display:none;
+				position:absolute;
+			}
+
+			.rainbowband
+			{
+				border-radius:50%;
+				position:absolute;
+			}
+
+			#safari_fix
+			{
+ 				-webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px; 
+ 				border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+				width:250px;
+				height:350px;
+				position:absolute;
+				z-index:950;
+				box-shadow: 0px 0px 0px 500px #FFFFFF;
+			}
+
+		    @media print
+		    {
+		    	#dashboard_wrapper {display: none;}
+		    	#egg_wrapper 
+		    	{
+		    		display:block;
+		    		border-width:0px;
+		    		width:90%;
+		    		position:relative;
+		    		margin-left:auto;
+		    		margin-right:auto;
+		    	}
+		    }
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			function setcolor(varid)
+			{
+				$("#"+varid).css("background-color", $("#col_"+varid).val());
+			}
+
+			function setwidth(varid)
+			{
+				$("#"+varid).width($("#rng_width_"+varid).val());
+
+				if (varid=="egg")
+				{
+					var marginleft=($("#egg_wrapper").width()-$("#egg").width())/2;
+
+					$("#egg_overlay").width($("#rng_width_"+varid).val());
+					$("#safari_fix").width($("#rng_width_"+varid).val());
+					$("#egg_shadow").width($("#rng_width_"+varid).val()/1.5);
+					$("#egg").css("margin-left", marginleft+"px");
+					$("#egg_shadow").css("margin-left", (($("#egg_wrapper").width()-$("#egg_shadow").width())/2)+"px");
+					setwidth("rainbow_wrapper");
+				}
+
+				if (varid=="rainbow_wrapper")
+				{
+					$("#rainbow_wrapper").css("margin-left","-"+(($("#rainbow_wrapper").width()-$("#egg").width())/2)+"px");
+					$(".rainbowband").width($("#rng_width_"+varid).val()-($("#hid_thickness_rainbow").val()*2));
+				}
+			}
+
+			function setheight(varid)
+			{
+				$("#"+varid).height($("#rng_height_"+varid).val());
+
+				if (varid=="egg")
+				{
+					var margintop=($("#egg_wrapper").height()-$("#egg").height())/2;
+
+					$("#egg_overlay").height($("#rng_height_"+varid).val());
+					$("#safari_fix").height($("#rng_height_"+varid).val());
+					$("#egg").css("margin-top", margintop+"px");
+					$("#egg_shadow").css("margin-top",(parseInt($("#rng_height_"+varid).val())+margintop-($("#egg_shadow").height()*2))+"px");
+				}
+
+				if (varid=="rainbow_wrapper")
+				{
+					$(".rainbowband").height($("#rainbow_wrapper").height()*2);
+					$("#hid_thickness_rainbow").val($("#rainbow_wrapper").height()/20);
+					
+					$(".rainbowband").each(function() 
+					{ 
+    					$(this).css("border-width", $("#hid_thickness_rainbow").val()+"px");
+    				});
+
+					$("#rainbowband1").css("margin-top", "0px");
+					$("#rainbowband2").css("margin-top", $("#hid_thickness_rainbow").val()+"px");
+					$("#rainbowband3").css("margin-top", ($("#hid_thickness_rainbow").val()*2)+"px");
+					$("#rainbowband4").css("margin-top", ($("#hid_thickness_rainbow").val()*3)+"px");
+					$("#rainbowband5").css("margin-top", ($("#hid_thickness_rainbow").val()*4)+"px");
+					$("#rainbowband6").css("margin-top", ($("#hid_thickness_rainbow").val()*5)+"px");
+					$("#rainbowband7").css("margin-top", ($("#hid_thickness_rainbow").val()*6)+"px");
+					setwidth("rainbow_wrapper");
+				}
+			}
+
+			function setrotation(varid)
+			{
+				$("#"+varid).css("transform", "rotate("+$("#rng_rotate_"+varid).val()+"deg)");
+				$("#"+varid).css("-webkit-transform", "rotate("+$("#rng_rotate_"+varid).val()+"deg)");
+			}
+
+			function setx(varid)
+			{
+				$("#"+varid).css("margin-left", $("#rng_x_"+varid).val()+"px");
+			}
+
+			function sety(varid)
+			{
+				$("#"+varid).css("margin-top", $("#rng_y_"+varid).val()+"px");
+			}
+
+			function setz(varid)
+			{
+				$("#"+varid).css("z-index", $("#rng_z_"+varid).val());
+			}
+
+			function setvisible(varid)
+			{
+				if ($("#cb_"+varid).prop("checked"))
+				{
+					$("#"+varid).show();
+
+					if (varid.indexOf("band")==0)
+					{
+						setcolor(varid);
+						setheight(varid);
+						setrotation(varid);
+						sety(varid);
+						setz(varid);
+					}
+
+					if (varid.indexOf("polkadot")==0)
+					{
+						setcolor(varid);
+						setheight(varid);
+						setwidth(varid);
+						setx(varid);
+						sety(varid);
+						setz(varid);
+					}
+
+					if (varid.indexOf("star")==0)
+					{
+						setstar(varid.replace("_wrapper",""));
+						setx(varid);
+						sety(varid);
+						setz(varid);
+					}
+
+					if (varid=="rainbow_wrapper")
+					{
+						setheight("rainbow_wrapper");
+						setrotation("rainbow_wrapper");
+						sety("rainbow_wrapper");
+						setz("rainbow_wrapper");
+					}
+				}
+				else
+				{
+					$("#"+varid).hide();
+				}
+			}
+
+			function setstar(varid)
+			{
+				var minval=($("#rng_size_"+varid).val()/4)*3;
+				var maxval=$("#rng_size_"+varid).val();
+
+				$("#"+varid.replace("star","star_wrapper")).width(minval*2);
+				$("#"+varid.replace("star","star_wrapper")).height(minval*2);
+
+				for (var i=1;i<=3;i++)
+				{
+					$("#"+varid+"_part"+i).css("color", $("#col_"+varid).val());	
+					$("#"+varid+"_part"+i).css("border-right", maxval+"px solid transparent");
+					$("#"+varid+"_part"+i).css("border-left", maxval+"px solid transparent");		
+					$("#"+varid+"_part"+i).css("border-bottom", minval+"px solid "+$("#col_"+varid).val()); 					
+				}
+			}
+		</script>
+	</head>
+	<body onload="setcolor('egg');setheight('egg');setwidth('egg');">
+		<div id="dashboard_wrapper">
+			<fieldset>
+				<legend>Egg Settings</legend>
+				<table>
+					<tr>
+						<td><label for="col_egg">Egg Color</label></td>
+						<td><input type="color" id="col_egg" value="#FFFFAA" onchange="setcolor('egg');"></td>
+					</tr>
+					<tr>
+						<td><label for="rng_height_egg">Egg Height</label></td>
+						<td><input type="range" id="rng_height_egg" value="350" min="150" max="400" step="10" onchange="setheight('egg');"></td>
+					</tr>
+					<tr>
+						<td><label for="rng_width_egg">Egg Width</label></td>
+						<td><input type="range" id="rng_width_egg" value="250" min="100" max="300" step="10" onchange="setwidth('egg');"></td>
+					</tr>
+				</table>				
+			</fieldset>
+
+			<fieldset>
+				<legend>Band Settings <input type="checkbox" id="cb_pnlBands" onclick="setvisible('pnlBands');"></legend>
+				<div id="pnlBands">
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_band1" onclick="setvisible('band1');"><br />
+								<div class="verticaltext">Band 1</div>
+							</td>
+							<td><label for="col_band1">Color</label></td>
+							<td><input type="color" id="col_band1" value="#FF55EE" onchange="setcolor('band1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_band1">Height</label></td>
+							<td><input type="range" id="rng_height_band1" class="smallslider" value="50" min="1" max="500" step="10" onchange="setheight
+
+('band1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_band1">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_band1" class="smallslider" value="0" min="-180" max="180" step="10" onchange="setrotation
+
+('band1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_y_band1">Y</label></td>
+							<td><input type="range" id="rng_y_band1" class="smallslider" value="10" min="0" max="500" step="10" onchange="sety('band1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_band1">Z</label></td>
+							<td><input type="range" id="rng_z_band1" class="smallslider" value="20" min="20" max="500" step="10" onchange="setz('band1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_band2" onclick="setvisible('band2');"><br />
+								<div class="verticaltext">Band 2</div>
+							</td>
+							<td><label for="col_band2">Color</label></td>
+							<td><input type="color" id="col_band2" value="#00FF44" onchange="setcolor('band2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_band2">Height</label></td>
+							<td><input type="range" id="rng_height_band2" class="smallslider" value="80" min="1" max="500" step="10" onchange="setheight
+
+('band2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_band2">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_band2" class="smallslider" value="0" min="-180" max="180" step="10" onchange="setrotation
+
+('band2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_y_band2">Y</label></td>
+							<td><input type="range" id="rng_y_band2" class="smallslider" value="30" min="0" max="500" step="10" onchange="sety('band2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_band2">Z</label></td>
+							<td><input type="range" id="rng_z_band2" class="smallslider" value="30" min="20" max="500" step="10" onchange="setz('band2');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_band3" onclick="setvisible('band3');"><br />
+								<div class="verticaltext">Band 3</div>
+							</td>
+							<td><label for="col_band3">Color</label></td>
+							<td><input type="color" id="col_band3" value="#44AAFF" onchange="setcolor('band3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_band3">Height</label></td>
+							<td><input type="range" id="rng_height_band3" class="smallslider" value="20" min="1" max="500" step="10" onchange="setheight
+
+('band3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_band3">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_band3" class="smallslider" value="20" min="-180" max="180" step="10" onchange="setrotation
+
+('band3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_y_band3">Y</label></td>
+							<td><input type="range" id="rng_y_band3" class="smallslider" value="60" min="0" max="500" step="10" onchange="sety('band3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_band3">Z</label></td>
+							<td><input type="range" id="rng_z_band3" class="smallslider" value="40" min="20" max="500" step="10" onchange="setz('band3');"></td>
+						</tr>				
+					</table>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Polkadot Settings <input type="checkbox" id="cb_pnlPolkadots" onclick="setvisible('pnlPolkadots');"></legend>
+				<div id="pnlPolkadots">
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_polkadot1" onclick="setvisible('polkadot1');"><br />
+								<div class="verticaltext">Polkadot 1</div>
+							</td>
+							<td><label for="col_polkadot1">Color</label></td>
+							<td><input type="color" id="col_polkadot1" value="#04EE04" onchange="setcolor('polkadot1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_polkadot1">Height</label></td>
+							<td><input type="range" id="rng_height_polkadot1" class="smallslider" value="20" min="10" max="200" step="10" onchange="setheight('polkadot1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_polkadot1">Width</label></td>
+							<td><input type="range" id="rng_width_polkadot1" class="smallslider" value="20" min="10" max="200" step="10" onchange="setwidth('polkadot1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_polkadot1">X</label></td>
+							<td><input type="range" id="rng_x_polkadot1" class="smallslider" value="50" min="0" max="200" step="10" onchange="setx('polkadot1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_polkadot1">Y</label></td>
+							<td><input type="range" id="rng_y_polkadot1" class="smallslider" value="50" min="0" max="200" step="10" onchange="sety('polkadot1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_polkadot1">Z</label></td>
+							<td><input type="range" id="rng_z_polkadot1" class="smallslider" value="50" min="20" max="500" step="10" onchange="setz('polkadot1');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_polkadot2" onclick="setvisible('polkadot2');"><br />
+								<div class="verticaltext">Polkadot 2</div>
+							</td>
+							<td><label for="col_polkadot2">Color</label></td>
+							<td><input type="color" id="col_polkadot2" value="#44EEFF" onchange="setcolor('polkadot2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_polkadot2">Height</label></td>
+							<td><input type="range" id="rng_height_polkadot2" class="smallslider" value="30" min="10" max="200" step="10" onchange="setheight('polkadot2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_polkadot2">Width</label></td>
+							<td><input type="range" id="rng_width_polkadot2" class="smallslider" value="30" min="10" max="200" step="10" onchange="setwidth('polkadot2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_polkadot2">X</label></td>
+							<td><input type="range" id="rng_x_polkadot2" class="smallslider" value="50" min="0" max="200" step="10" onchange="setx('polkadot2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_polkadot2">Y</label></td>
+							<td><input type="range" id="rng_y_polkadot2" class="smallslider" value="80" min="0" max="200" step="10" onchange="sety('polkadot2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_polkadot2">Z</label></td>
+							<td><input type="range" id="rng_z_polkadot2" class="smallslider" value="60" min="20" max="500" step="10" onchange="setz('polkadot2');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_polkadot3" onclick="setvisible('polkadot3');"><br />
+								<div class="verticaltext">Polkadot 3</div>
+							</td>
+							<td><label for="col_polkadot3">Color</label></td>
+							<td><input type="color" id="col_polkadot3" value="#004499" onchange="setcolor('polkadot3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_polkadot3">Height</label></td>
+							<td><input type="range" id="rng_height_polkadot3" class="smallslider" value="10" min="10" max="200" step="10" onchange="setheight('polkadot3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_polkadot3">Width</label></td>
+							<td><input type="range" id="rng_width_polkadot3" class="smallslider" value="10" min="10" max="200" step="10" onchange="setwidth('polkadot3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_polkadot3">X</label></td>
+							<td><input type="range" id="rng_x_polkadot3" class="smallslider" value="150" min="0" max="200" step="10" onchange="setx('polkadot3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_polkadot3">Y</label></td>
+							<td><input type="range" id="rng_y_polkadot3" class="smallslider" value="150" min="0" max="200" step="10" onchange="sety('polkadot3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_polkadot3">Z</label></td>
+							<td><input type="range" id="rng_z_polkadot3" class="smallslider" value="70" min="20" max="500" step="10" onchange="setz('polkadot3');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_polkadot4" onclick="setvisible('polkadot4');"><br />
+								<div class="verticaltext">Polkadot 4</div>
+							</td>
+							<td><label for="col_polkadot4">Color</label></td>
+							<td><input type="color" id="col_polkadot4" value="#FFFF00" onchange="setcolor('polkadot4');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_polkadot4">Height</label></td>
+							<td><input type="range" id="rng_height_polkadot4" class="smallslider" value="30" min="10" max="200" step="10" onchange="setheight('polkadot4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_polkadot4">Width</label></td>
+							<td><input type="range" id="rng_width_polkadot4" class="smallslider" value="30" min="10" max="200" step="10" onchange="setwidth('polkadot4');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_polkadot4">X</label></td>
+							<td><input type="range" id="rng_x_polkadot4" class="smallslider" value="120" min="0" max="200" step="10" onchange="setx('polkadot4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_polkadot4">Y</label></td>
+							<td><input type="range" id="rng_y_polkadot4" class="smallslider" value="90" min="0" max="200" step="10" onchange="sety('polkadot4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_polkadot4">Z</label></td>
+							<td><input type="range" id="rng_z_polkadot4" class="smallslider" value="80" min="20" max="500" step="10" onchange="setz('polkadot4');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_polkadot5" onclick="setvisible('polkadot5');"><br />
+								<div class="verticaltext">Polkadot 5</div>
+							</td>
+							<td><label for="col_polkadot5">Color</label></td>
+							<td><input type="color" id="col_polkadot5" value="#AA0544" onchange="setcolor('polkadot5');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_height_polkadot5">Height</label></td>
+							<td><input type="range" id="rng_height_polkadot5" class="smallslider" value="50" min="10" max="200" step="10" onchange="setheight('polkadot5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_polkadot5">Width</label></td>
+							<td><input type="range" id="rng_width_polkadot5" class="smallslider" value="50" min="10" max="200" step="10" onchange="setwidth('polkadot5');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_polkadot5">X</label></td>
+							<td><input type="range" id="rng_x_polkadot5" class="smallslider" value="80" min="0" max="200" step="10" onchange="setx('polkadot5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_polkadot5">Y</label></td>
+							<td><input type="range" id="rng_y_polkadot5" class="smallslider" value="10" min="0" max="200" step="10" onchange="sety('polkadot5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_polkadot5">Z</label></td>
+							<td><input type="range" id="rng_z_polkadot5" class="smallslider" value="90" min="20" max="500" step="10" onchange="setz('polkadot5');"></td>
+						</tr>				
+					</table>				
+				</div>
+			</fieldset>	
+
+			<fieldset>
+				<legend>Star Settings <input type="checkbox" id="cb_pnlStars" onclick="setvisible('pnlStars');"></legend>
+				<div id="pnlStars">
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_star_wrapper1" onclick="setvisible('star_wrapper1');"><br />
+								<div class="verticaltext">Star 1</div>
+							</td>
+							<td><label for="col_star1">Color</label></td>
+							<td><input type="color" id="col_star1" value="#05F044" onchange="setstar('star1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_size_star1">Size</label></td>
+							<td><input type="range" id="rng_size_star1" class="smallslider" value="20" min="20" max="100" step="20" onchange="setstar
+
+('star1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_star_wrapper1">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_star_wrapper1" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('star_wrapper1');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_star_wrapper1">X</label></td>
+							<td><input type="range" id="rng_x_star_wrapper1" class="smallslider" value="150" min="0" max="200" step="10" onchange="setx
+
+('star_wrapper1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_star_wrapper1">Y</label></td>
+							<td><input type="range" id="rng_y_star_wrapper1" class="smallslider" value="150" min="0" max="200" step="10" onchange="sety
+
+('star_wrapper1');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_star_wrapper1">Z</label></td>
+							<td><input type="range" id="rng_z_star_wrapper1" class="smallslider" value="160" min="20" max="500" step="10" onchange="setz
+
+('star_wrapper1');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_star_wrapper2" onclick="setvisible('star_wrapper2');"><br />
+								<div class="verticaltext">Star 2</div>
+							</td>
+							<td><label for="col_star2">Color</label></td>
+							<td><input type="color" id="col_star2" value="#EE0088" onchange="setstar('star2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_size_star2">Size</label></td>
+							<td><input type="range" id="rng_size_star2" class="smallslider" value="40" min="20" max="100" step="20" onchange="setstar
+
+('star2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_star_wrapper2">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_star_wrapper2" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('star_wrapper2');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_star_wrapper2">X</label></td>
+							<td><input type="range" id="rng_x_star_wrapper2" class="smallslider" value="150" min="0" max="200" step="10" onchange="setx
+
+('star_wrapper2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_star_wrapper2">Y</label></td>
+							<td><input type="range" id="rng_y_star_wrapper2" class="smallslider" value="250" min="0" max="200" step="10" onchange="sety
+
+('star_wrapper2');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_star_wrapper2">Z</label></td>
+							<td><input type="range" id="rng_z_star_wrapper2" class="smallslider" value="170" min="20" max="500" step="10" onchange="setz
+
+('star_wrapper2');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_star_wrapper3" onclick="setvisible('star_wrapper3');"><br />
+								<div class="verticaltext">Star 3</div>
+							</td>
+							<td><label for="col_star3">Color</label></td>
+							<td><input type="color" id="col_star3" value="#FF9966" onchange="setstar('star3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_size_star3">Size</label></td>
+							<td><input type="range" id="rng_size_star3" class="smallslider" value="20" min="20" max="100" step="20" onchange="setstar
+
+('star3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_star_wrapper3">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_star_wrapper3" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('star_wrapper3');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_star_wrapper3">X</label></td>
+							<td><input type="range" id="rng_x_star_wrapper3" class="smallslider" value="50" min="0" max="200" step="10" onchange="setx
+
+('star_wrapper3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_star_wrapper3">Y</label></td>
+							<td><input type="range" id="rng_y_star_wrapper3" class="smallslider" value="280" min="0" max="200" step="10" onchange="sety
+
+('star_wrapper3');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_star_wrapper3">Z</label></td>
+							<td><input type="range" id="rng_z_star_wrapper3" class="smallslider" value="180" min="20" max="500" step="10" onchange="setz
+
+('star_wrapper3');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_star_wrapper4" onclick="setvisible('star_wrapper4');"><br />
+								<div class="verticaltext">Star 4</div>
+							</td>
+							<td><label for="col_star4">Color</label></td>
+							<td><input type="color" id="col_star4" value="#0055FF" onchange="setstar('star4');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_size_star4">Size</label></td>
+							<td><input type="range" id="rng_size_star4" class="smallslider" value="80" min="20" max="100" step="20" onchange="setstar
+
+('star4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_star_wrapper4">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_star_wrapper4" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('star_wrapper4');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_star_wrapper4">X</label></td>
+							<td><input type="range" id="rng_x_star_wrapper4" class="smallslider" value="150" min="0" max="200" step="10" onchange="setx
+
+('star_wrapper4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_star_wrapper4">Y</label></td>
+							<td><input type="range" id="rng_y_star_wrapper4" class="smallslider" value="50" min="0" max="200" step="10" onchange="sety
+
+('star_wrapper4');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_star_wrapper4">Z</label></td>
+							<td><input type="range" id="rng_z_star_wrapper4" class="smallslider" value="190" min="20" max="500" step="10" onchange="setz
+
+('star_wrapper4');"></td>
+						</tr>				
+					</table>
+
+					<table>
+						<tr>
+							<td rowspan="4">
+								<input type="checkbox" id="cb_star_wrapper5" onclick="setvisible('star_wrapper5');"><br />
+								<div class="verticaltext">Star 5</div>
+							</td>
+							<td><label for="col_star5">Color</label></td>
+							<td><input type="color" id="col_star5" value="#040444" onchange="setstar('star5');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_size_star5">Size</label></td>
+							<td><input type="range" id="rng_size_star5" class="smallslider" value="20" min="40" max="100" step="20" onchange="setstar
+
+('star5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_star_wrapper5">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_star_wrapper5" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('star_wrapper5');"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><label for="rng_x_star_wrapper5">X</label></td>
+							<td><input type="range" id="rng_x_star_wrapper5" class="smallslider" value="50" min="0" max="200" step="10" onchange="setx
+
+('star_wrapper5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_y_star_wrapper5">Y</label></td>
+							<td><input type="range" id="rng_y_star_wrapper5" class="smallslider" value="100" min="0" max="200" step="10" onchange="sety
+
+('star_wrapper5');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_star_wrapper5">Z</label></td>
+							<td><input type="range" id="rng_z_star_wrapper5" class="smallslider" value="200" min="20" max="500" step="10" onchange="setz
+
+('star_wrapper5');"></td>
+						</tr>				
+					</table>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Rainbow Settings <input type="checkbox" id="cb_pnlRainbow" onclick="setvisible('pnlRainbow');"></legend>
+				<div id="pnlRainbow">
+					<table>
+						<tr>
+							<td rowspan="2">
+								<input type="checkbox" id="cb_rainbow_wrapper" onclick="setvisible('rainbow_wrapper');"><br />
+								<div class="verticaltext">Rainbow</div>
+							</td>
+							<td><label for="rng_height_rainbow_wrapper">Height</label><input type="hidden" id="hid_thickness_rainbow" value="10"></td>
+							<td><input type="range" id="rng_height_rainbow_wrapper" class="smallslider" value="100" min="20" max="500" step="20" 
+
+onchange="setheight('rainbow_wrapper');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_width_rainbow_wrapper">Width</label></td>
+							<td><input type="range" id="rng_width_rainbow_wrapper" class="smallslider" value="500" min="500" max="1500" step="10" 
+
+onchange="setwidth('rainbow_wrapper');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_rotate_rainbow_wrapper">Rotation</label></td>
+							<td><input type="range" id="rng_rotate_rainbow_wrapper" class="smallslider" value="0" min="-180" max="180" step="10" 
+
+onchange="setrotation('rainbow_wrapper');"></td>
+						</tr>
+						<tr>
+							<td><label for="rng_y_rainbow_wrapper">Y</label></td>
+							<td><input type="range" id="rng_y_rainbow_wrapper" class="smallslider" value="60" min="0" max="500" step="10" onchange="sety
+
+('rainbow_wrapper');"></td>
+							<td>&nbsp;</td>
+							<td><label for="rng_z_rainbow_wrapper">Z</label></td>
+							<td><input type="range" id="rng_z_rainbow_wrapper" class="smallslider" value="150" min="20" max="500" step="10" onchange="setz
+
+('rainbow_wrapper');"></td>
+						</tr>			
+					</table>
+				</div>
+			</fieldset>
+		</div>
+
+		<div id="egg_wrapper">
+			<div id="egg">
+				<div id="safari_fix"></div>
+				<div id="egg_overlay"></div>
+
+				<div id="band1" class="band"></div>
+				<div id="band2" class="band"></div>
+				<div id="band3" class="band"></div>
+
+				<div id="polkadot1" class="polkadot"></div>
+				<div id="polkadot2" class="polkadot"></div>
+				<div id="polkadot3" class="polkadot"></div>
+				<div id="polkadot4" class="polkadot"></div>
+				<div id="polkadot5" class="polkadot"></div>
+
+
+				<div id="star_wrapper1" class="star_wrapper">
+					<div id="star1_part1" class="star_part1"></div>
+					<div id="star1_part2" class="star_part2"></div>
+					<div id="star1_part3" class="star_part3"></div>
+				</div>
+
+				<div id="star_wrapper2" class="star_wrapper">
+					<div id="star2_part1" class="star_part1"></div>
+					<div id="star2_part2" class="star_part2"></div>
+					<div id="star2_part3" class="star_part3"></div>
+				</div>
+
+				<div id="star_wrapper3" class="star_wrapper">
+					<div id="star3_part1" class="star_part1"></div>
+					<div id="star3_part2" class="star_part2"></div>
+					<div id="star3_part3" class="star_part3"></div>
+				</div>
+
+				<div id="star_wrapper4" class="star_wrapper">
+					<div id="star4_part1" class="star_part1"></div>
+					<div id="star4_part2" class="star_part2"></div>
+					<div id="star4_part3" class="star_part3"></div>
+				</div>
+
+				<div id="star_wrapper5" class="star_wrapper">
+					<div id="star5_part1" class="star_part1"></div>
+					<div id="star5_part2" class="star_part2"></div>
+					<div id="star5_part3" class="star_part3"></div>
+				</div>
+
+				<div id="rainbow_wrapper">
+					<div id="rainbowband1" class="rainbowband"></div>
+					<div id="rainbowband2" class="rainbowband"></div>
+					<div id="rainbowband3" class="rainbowband"></div>
+					<div id="rainbowband4" class="rainbowband"></div>
+					<div id="rainbowband5" class="rainbowband"></div>
+					<div id="rainbowband6" class="rainbowband"></div>
+					<div id="rainbowband7" class="rainbowband"></div>	
+				</div>
+			</div>
+
+			<div id="egg_shadow"></div>
+		</div>
+	</body>
+</html>
