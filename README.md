@@ -15,4 +15,4 @@ Range inputs on the left control the CSS properties of the shapes whch are super
 - Z-index
 
 ## Print Function
-The CSS had been manipulated using media queries, to only show the egg and shapes when printed, hiding all the controls.
+The CSS has been manipulated using media queries, to only show the egg and shapes when printed, hiding all the controls.
