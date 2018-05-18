@@ -16,3 +16,6 @@ Range inputs on the left control the CSS properties of the shapes whch are super
 
 ## Print Function
 The CSS has been manipulated using media queries, to only show the egg and shapes when printed, hiding all the controls.
+
+## Note
+The CSS doesn't render very well in IE, though the JavaScript works well enough.
