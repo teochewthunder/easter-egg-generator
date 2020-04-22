@@ -5,7 +5,7 @@ This generator is really all about CSS shapes.
 - Bands: Rectangular divs.
 - Polka Dots: Divs with rounded corners.
 - Stars: Spans with different border widths combined.
-- Rainbow: Thick ellipses within a div with *overflow* set to *hidden*
+- Rainbow: Thick ellipses within a div with `overflow` property set to `hidden`.
 
 Range inputs on the left control the CSS properties of the shapes whch are superimposed on the "egg". Properties that can be changed include:
 - Color
